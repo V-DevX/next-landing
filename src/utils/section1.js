@@ -1,7 +1,7 @@
 // src/utils/section1.ts
-import sec1_1 from "../assets/sec1_1.png";
-import sec1_2 from "../assets/sec1_2.png";
-import sec1_3 from "../assets/sec1_3.png";
+import sec1_1 from "../Assets/sec1_1.png";
+import sec1_2 from "../Assets/sec1_2.png";
+import sec1_3 from "../Assets/sec1_3.png";
 
 export const section1 = [
   {
