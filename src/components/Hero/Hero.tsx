@@ -1,4 +1,3 @@
-// src/components/Hero/Hero.tsx
 import React from "react";
 import Image from "next/image";
 import HeroImg from "../../Assets/Hero.png";
@@ -8,7 +7,7 @@ export default function Hero() {
   return (
     <section className="bg-white py-12 md:py-0 md:h-[700px]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-20 h-auto md:h-full">
-        {/* ── Mobile image (full-width w/ bottom slope) ── */}
+        {/*Mob Img*/}
         <div
           className="relative w-full h-[400px] sm:h-[400px] overflow-hidden block md:hidden"
           style={{
@@ -23,7 +22,7 @@ export default function Hero() {
           />
         </div>
 
-        {/* ── Text column ── */}
+        {/*col-1*/}
         <div className="order-last md:order-first md:col-span-11 flex flex-col justify-center px-6 md:px-0 mt-10 md:mt-40 md:mr-20 md:ml-18">
           <h1
             className="md:mr-15 text-[4rem] font-[700] tracking-[-0.02em] text-[#222222] [font-family:var(--font-heading)] leading-[100%]"
@@ -90,7 +89,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Desktop image (wider, full-height, left slope) ── */}
+        {/*col-2*/}
         <div className="hidden md:block md:col-span-9 w-full h-full">
           <div
             className="relative w-full h-full overflow-hidden"

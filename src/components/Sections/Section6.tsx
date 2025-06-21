@@ -1,4 +1,3 @@
-// src/components/Section7.tsx
 "use client";
 
 import React from "react";
@@ -47,7 +46,7 @@ export default function Section7() {
 
   return (
     <section className="relative bg-[#f1f5f9] overflow-hidden">
-      {/* Background collage in bottom-right */}
+      {/* Background*/}
       <div className="absolute bottom-0 right-0 left-35 w-64 h-64 md:w-[95%] md:h-[100%] pointer-events-none">
         <Image
           src={collage}
@@ -57,9 +56,9 @@ export default function Section7() {
         />
       </div>
 
-      {/* Content grid */}
+      {/*grid*/}
       <div className="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-30 items-center">
-        {/* Left column */}
+        {/* Left col*/}
         <div className="space-y-3 md:mb-40 md:ml-12">
           <motion.p
             className="text-[20px] font-[600] text-black [font-family:var(--font-sans)]"
@@ -125,7 +124,7 @@ export default function Section7() {
           </motion.button>
         </div>
 
-        {/* Right column intentionally left blank (decorative collage in background) */}
+        {/* Right col*/}
         <div />
       </div>
     </section>

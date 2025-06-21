@@ -1,4 +1,3 @@
-// src/components/Section1.tsx
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { section1 } from "../../utils/section1";
@@ -8,7 +7,7 @@ export default function Section1() {
   return (
     <section className="relative py-12 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:mt-15">
-        {/* Column 1 */}
+        {/* Col-1*/}
         <div className="space-y-6 md:px-8">
           <p className="text-[23px] font-[600] tracking-[-0.02em] text-[#1959AC] [font-family:var(--font-sans)]">
             Lorem ipsum dolor sit
@@ -27,7 +26,6 @@ export default function Section1() {
             at purus lectus.
           </p>
 
-          {/* Iterated items */}
           <div className="space-y-6">
             {section1.map((item) => (
               <div key={item.id} className="flex items-center gap-4">
@@ -47,7 +45,7 @@ export default function Section1() {
             ))}
           </div>
 
-          {/* Button + phone */}
+          {/* Button and Ph.no*/}
           <div className="flex flex-row items-center gap-6 md:mt-15">
             <button className="inline-flex items-center px-6 py-3 bg-[#1959AC] hover:bg-[#0546D2] text-white font-[600] rounded-md transition">
               Lorum ipsum
@@ -86,7 +84,7 @@ export default function Section1() {
           </div>
         </div>
 
-        {/* Column 2 – framed image */}
+        {/* Col-2*/}
         <div className="flex items-center justify-center">
           <div className="overflow-hidden w-full max-w-150">
             <div className="relative w-full h-170">
@@ -100,7 +98,7 @@ export default function Section1() {
           </div>
         </div>
       </div>
-      {/* Bottom border (gradient, 90% width from left) */}
+      {/*Bottom border*/}
       <div
         className="absolute bottom-0 left-0 w-[90%] h-[10px]"
         style={{

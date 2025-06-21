@@ -1,4 +1,3 @@
-// src/components/Form.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -84,28 +83,28 @@ export default function Form() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* Name */}
+          {/*Name*/}
           <motion.div variants={fieldVariants} className="flex flex-col">
             <label className="mb-5 font-medium text-gray-700">Name</label>
             <input {...register("name")} className={cn(inputClasses, errors.name && "border-red-500")} />
             {errors.name && <span className="text-red-600 text-sm mt-1">{errors.name.message}</span>}
           </motion.div>
 
-          {/* Email */}
+          {/*Email*/}
           <motion.div variants={fieldVariants} className="flex flex-col">
             <label className="mb-5 font-medium text-gray-700">Email</label>
             <input {...register("email")} className={cn(inputClasses, errors.email && "border-red-500")} />
             {errors.email && <span className="text-red-600 text-sm mt-1">{errors.email.message}</span>}
           </motion.div>
 
-          {/* Phone */}
+          {/* Ph*/}
           <motion.div variants={fieldVariants} className="flex flex-col">
             <label className="mb-1 font-medium text-gray-700">Phone No.</label>
             <input {...register("phone")} className={cn(inputClasses, errors.phone && "border-red-500")} />
             {errors.phone && <span className="text-red-600 text-sm mt-1">{errors.phone.message}</span>}
           </motion.div>
 
-          {/* Time Frame */}
+          {/*Time*/}
           <motion.div variants={fieldVariants} className="flex flex-col">
             <label className="mb-1 font-medium text-gray-700">Time Frame</label>
             <select {...register("timeframe")} className={cn(inputClasses, errors.timeframe && "border-red-500")}>
@@ -117,7 +116,7 @@ export default function Form() {
             {errors.timeframe && <span className="text-red-600 text-sm mt-1">{errors.timeframe.message}</span>}
           </motion.div>
 
-          {/* Size */}
+          {/*Size*/}
           <motion.div variants={fieldVariants} className="flex flex-col">
             <label className="mb-1 font-medium text-gray-700">Size</label>
             <select {...register("size")} className={cn(inputClasses, errors.size && "border-red-500")}>
@@ -129,7 +128,7 @@ export default function Form() {
             {errors.size && <span className="text-red-600 text-sm mt-1">{errors.size.message}</span>}
           </motion.div>
 
-          {/* Quantity */}
+          {/*Qnty*/}
           <motion.div variants={fieldVariants} className="flex flex-col">
             <label className="mb-1 font-medium text-gray-700">Quantity</label>
             <select {...register("quantity")} className={cn(inputClasses, errors.quantity && "border-red-500")}>
@@ -143,7 +142,7 @@ export default function Form() {
             {errors.quantity && <span className="text-red-600 text-sm mt-1">{errors.quantity.message}</span>}
           </motion.div>
 
-          {/* Description */}
+          {/*Desc*/}
           <motion.div variants={fieldVariants} className="md:col-span-2 flex flex-col">
             <label className="mb-1 font-medium text-gray-700">Please describe your Project</label>
             <textarea
@@ -156,7 +155,7 @@ export default function Form() {
             {errors.description && <span className="text-red-600 text-sm mt-1">{errors.description.message}</span>}
           </motion.div>
 
-          {/* Terms & Privacy */}
+          {/*Terms*/}
           <motion.div variants={fieldVariants} className="md:col-span-2 text-sm text-gray-600 text-center">
             By submitting this form you agree to our{" "}
             <Tooltip>
@@ -198,7 +197,7 @@ export default function Form() {
             </Tooltip>
           </motion.div>
 
-          {/* Submit Button */}
+          {/*Submit*/}
           <motion.div variants={fieldVariants} className="md:col-span-2 flex justify-center">
             <motion.button
               type="submit"
@@ -222,7 +221,7 @@ export default function Form() {
         </motion.form>
       </div>
 
-      {/* Toast Popup with slide-in/out animation */}
+      {/*Popup*/}
       <AnimatePresence>
         {showToast && (
           <motion.div

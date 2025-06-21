@@ -1,6 +1,4 @@
-// src/components/Section6.tsx
 "use client";
-
 import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
@@ -36,7 +34,7 @@ export default function Section6() {
   return (
     <section className="bg-[#f3f3f3] overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto">
-        {/* Column 1 */}
+        {/* Col1*/}
         <div className="flex flex-col justify-center px-10 lg:px-20 py-22 space-y-6">
           <motion.p
             className="text-[20px] font-[600] text-[#1959AC] [font-family:var(--font-sans)]"
@@ -83,14 +81,14 @@ export default function Section6() {
               fill
               className="object-contain"
             />
-            {/* Glass glare overlay on first image */}
+            {/* Glass glare*/}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
               <div className="glare" />
             </div>
           </motion.div>
         </div>
 
-        {/* Column 2 */}
+        {/* Col2*/}
         <motion.div
           className="hidden md:flex items-end justify-center h-[100%] overflow-hidden"
           variants={fadeIn}
@@ -114,7 +112,7 @@ export default function Section6() {
         </motion.div>
       </div>
 
-      {/* Glass glare animation */}
+      {/*glare animation*/}
       <style jsx>{`
         .glare {
           position: absolute;

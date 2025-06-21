@@ -1,4 +1,3 @@
-// src/components/Section8.tsx
 "use client";
 
 import React from "react";
@@ -29,12 +28,12 @@ const fadeIn: Variants = {
 export default function Section8() {
   return (
     <section className="relative bg-transparent py-16">
-      {/* Content container */}
+     
       <div className="relative max-w-7xl mx-auto bg-[#f1f5f9] grid grid-cols-1 md:grid-cols-2 px-6 py-16 gap-1 z-0">
-        {/* Empty first column */}
+        {/*first column */}
         <div />
 
-        {/* Second column with content */}
+        {/* Second col*/}
         <motion.div
           className="space-y-9 mt-35 md:mt-0 lg:mr-30"
           variants={container}
@@ -64,7 +63,7 @@ export default function Section8() {
             amet non.
           </motion.p>
 
-          {/* Two-column list */}
+          {/*list */}
           <motion.div
             className="grid grid-cols-2 gap-x-8 mt-8 text-[16px] text-[#222222] [font-family:var(--font-sans)]"
             variants={fadeIn}
@@ -105,7 +104,7 @@ export default function Section8() {
         </motion.div>
       </div>
 
-      {/* Decorative image in front of container */}
+      {/*img*/}
       <div
         className="
           absolute top-0 

@@ -1,4 +1,3 @@
-// src/components/Section9.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -54,7 +53,7 @@ export default function Section9() {
             LOREM IPSUM DOLOR SIT AMET
           </motion.h2>
 
-          {/* Headings table */}
+          {/* Headings*/}
           <motion.div className="overflow-x-auto" variants={fadeIn}>
             <table className="w-full table-fixed border-separate border-spacing-0 border border-black rounded-lg overflow-hidden">
               <thead>
@@ -85,7 +84,7 @@ export default function Section9() {
             </table>
           </motion.div>
 
-          {/* Description with typing */}
+          {/* Description*/}
           <motion.p
             className="text-[16px] text-[#222222] leading-relaxed md:mb-15"
             variants={fadeIn}
@@ -119,7 +118,7 @@ export default function Section9() {
           </motion.a>
         </div>
 
-        {/* Column 2 – Image */}
+        {/* Column 2*/}
         <motion.div
           className="flex justify-center md:justify-end"
           variants={fadeIn}

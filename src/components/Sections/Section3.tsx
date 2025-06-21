@@ -1,4 +1,3 @@
-// src/components/Section3.tsx
 "use client";
 import React, { useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
@@ -55,12 +54,11 @@ export default function Section3() {
 
   return (
     <section className="py-12 px-6 bg-white">
-      {/* Heading */}
       <h2 className="text-[2rem] md:text-[2.5rem] font-[700] text-[#222222] text-center lg:px-60 mb-10 [font-family:var(--font-heading)]">
         LOREM IPSUM DOLOR SIT AMET CONSECTETUR. COMMODO LEO AMET.
       </h2>
 
-      {/* Grid Container */}
+      {/* Grid*/}
       <motion.div
         className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10 max-w-6xl mx-auto md:px-20"
         variants={container}

@@ -1,4 +1,3 @@
-// src/components/Section9.tsx
 "use client";
 
 import React, { useRef } from "react";
@@ -63,7 +62,7 @@ export default function Section9() {
           </p>
         </motion.div>
 
-        {/* Right column: button */}
+        {/* Right column*/}
         <motion.div variants={fadeInVariants} className="flex md:justify-end">
           <button className="inline-flex items-center bg-white text-blue-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
             Lorem Ipsum
@@ -84,7 +83,7 @@ export default function Section9() {
         </motion.div>
       </motion.div>
 
-      {/* Feedback carousel */}
+      {/*carousel */}
       <motion.div
         className="relative"
         variants={containerVariants}
@@ -131,7 +130,7 @@ export default function Section9() {
           ))}
         </div>
 
-        {/* Carousel controls below the cards, left aligned */}
+        {/* Carousel controls*/}
         <motion.div variants={fadeInVariants} className="flex space-x-2 mt-6">
           <button
             onClick={scrollPrev}
@@ -172,7 +171,6 @@ export default function Section9() {
         </motion.div>
       </motion.div>
 
-      {/* Hide native scrollbar */}
       <style jsx global>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
