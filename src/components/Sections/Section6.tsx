@@ -1,43 +1,23 @@
+// src/components/Section7.tsx
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion, Variants, Easing } from "framer-motion";
 import collage from "../../Assets/collage.png";
 
-// Title word slide-up animation
+// Title word slide‑up animation
 const container: Variants = {
   hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  show: { transition: { staggerChildren: 0.15 } },
 };
-
 const slideUpWord: Variants = {
   hidden: { opacity: 0, y: 3 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 2,
-      ease: "easeOut" as Easing,
-    },
-  },
+  show: { opacity: 1, y: 0, transition: { duration: 2, ease: "easeOut" as Easing } },
 };
-
-// Fade-in for text and paragraph
+// Fade‑in for text and paragraph
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 10 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      ease: "easeOut" as Easing,
-    },
-  },
+  show: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" as Easing } },
 };
 
 export default function Section7() {
@@ -45,21 +25,29 @@ export default function Section7() {
   const words = title.split(" ");
 
   return (
-    <section className="relative bg-[#f1f5f9] overflow-hidden">
-      {/* Background*/}
-      <div className="absolute bottom-0 right-0 left-35 w-64 h-64 md:w-[95%] md:h-[100%] pointer-events-none">
-        <Image
-          src={collage}
-          alt="Decorative collage"
-          fill
-          className="object-contain"
-        />
-      </div>
+    <section
+      className="relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${collage.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* white overlay ("face") on top of background */}
+      <div
+        className="
+          absolute inset-0 bg-white
+          opacity-80
+          md:opacity-0
+          lg:opacity-0
+          pointer-events-none
+        "
+      />
 
-      {/*grid*/}
+      {/* grid */}
       <div className="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-30 items-center">
-        {/* Left col*/}
-        <div className="space-y-3 md:mb-40 md:ml-12">
+        {/* Left col */}
+        <div className="space-y-3 md:mb-40 md:ml-12 md:mr-30">
           <motion.p
             className="text-[20px] font-[600] text-black [font-family:var(--font-sans)]"
             variants={fadeIn}
@@ -78,11 +66,7 @@ export default function Section7() {
             viewport={{ once: true }}
           >
             {words.map((word, idx) => (
-              <motion.span
-                key={idx}
-                className="inline-block mr-2"
-                variants={slideUpWord}
-              >
+              <motion.span key={idx} className="inline-block mr-2" variants={slideUpWord}>
                 {word}
               </motion.span>
             ))}
@@ -115,16 +99,12 @@ export default function Section7() {
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </motion.button>
         </div>
 
-        {/* Right col*/}
+        {/* Right col */}
         <div />
       </div>
     </section>
