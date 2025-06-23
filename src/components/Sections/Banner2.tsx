@@ -46,7 +46,7 @@ export default function Banner2() {
         </div>
 
         <motion.h2
-          className="flex flex-wrap justify-start md:justify-center text-[32px] md:text-[35px] font-[700] tracking-[-0.02em] text-white [font-family:var(--font-heading)] mb-6 md:mb-40 md:px-25 max-w-4xl"
+          className="flex flex-wrap justify-start md:justify-center text-[24px] md:text-[35px] font-[700] tracking-[-0.02em] text-white [font-family:var(--font-heading)] mb-6 md:mb-40 md:px-25 max-w-4xl"
           variants={container}
           initial="hidden"
           whileInView="show"

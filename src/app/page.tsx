@@ -1,4 +1,8 @@
-// app/page.tsx or src/app/page.tsx
+// src/app/page.tsx
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
+import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/Hero";
 import Section1 from "@/components/Sections/Section1";
 import Section2 from "@/components/Sections/Section2";
@@ -12,11 +16,44 @@ import Section6 from "@/components/Sections/Section6";
 import Section7 from "@/components/Sections/Section7";
 import Section8 from "@/components/Sections/Section8";
 import Section9 from "@/components/Sections/Section9";
+import Section10Responsive from "@/components/Sections/Section10Responsive";
+import FAQ from "@/components/Sections/FAQ";
+import Section12 from "@/components/Sections/Section12";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
+  const [showNav, setShowNav] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY.current) {
+        // scrolling down
+        setShowNav(false);
+      } else {
+        // scrolling up
+        setShowNav(true);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <main className="bg-white">
-      <div className="space-y-24">
+      {/* Navbar overlaid on top of Hero */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+          showNav ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <Navbar />
+      </div>
+
+      {/* Give space so content isn't hidden under fixed navbar */}
+      <div className="pt-1 space-y-24">
         <Hero />
         <Section1 />
         <Section2 />
@@ -30,6 +67,10 @@ export default function Home() {
         <Section7 />
         <Section8 />
         <Section9 />
+        <Section10Responsive />
+        <FAQ />
+        <Section12 />
+        <Footer />
       </div>
     </main>
   );
