@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Your Landing Page Title",
+  title: "Landing Page",
   description: "Brief description of your landing page for SEO.",
   icons: {
     icon: "/favicon.ico",

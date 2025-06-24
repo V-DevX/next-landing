@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -10,7 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, Menu as MenuIcon, X as CloseIcon } from "lucide-react";
 import { navbarMenus } from "../../utils/navbarMenus";
 
 const menuContainer: Variants = {
@@ -23,19 +22,23 @@ const menuItem: Variants = {
 };
 
 export default function Navbar() {
-  // Track which menu is currently open (by id), or null if none
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSubOpen, setMobileSubOpen] = useState<number | null>(null);
 
   return (
-    <nav className="w-full bg-transparent inset-0 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md">
+      <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center">
         {/* Logo */}
-        <Link href="/" className="inline-block bg-[#dbdbdb] text-black text-[2rem] font-bold px-8 py-1 rounded">
+        <Link
+          href="/"
+          className="inline-block bg-[#dbdbdb] text-black text-[2rem] font-bold px-8 py-1 rounded"
+        >
           LOGO
         </Link>
 
-        {/* Center menus */}
-        <div className="flex space-x-5">
+        {/* Desktop menus (centered) */}
+        <div className="flex-1 hidden md:flex justify-center space-x-5">
           {navbarMenus.map((menu) => {
             const isOpen = openMenuId === menu.id;
             return (
@@ -45,13 +48,17 @@ export default function Navbar() {
                 onMouseEnter={() => setOpenMenuId(menu.id)}
                 onMouseLeave={() => setOpenMenuId(null)}
               >
-                <DropdownMenu open={isOpen} onOpenChange={(o) => setOpenMenuId(o ? menu.id : null)}>
+                <DropdownMenu
+                  open={isOpen}
+                  onOpenChange={(o) => setOpenMenuId(o ? menu.id : null)}
+                >
                   <DropdownMenuTrigger asChild>
                     <button className="inline-flex items-center text-[#222222] font-medium hover:text-[#0546D2] transition">
                       {menu.MenuName}
                       <ChevronDown className="ml-1 w-4 h-4" />
                     </button>
                   </DropdownMenuTrigger>
+
                   <DropdownMenuContent
                     align="start"
                     sideOffset={4}
@@ -83,14 +90,84 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Sign In button */}
-        <Link
-          href="/signin"
-          className="px-8 py-2 bg-White hover:bg-[#0546D2] shadow-md text-black hover:text-white font-medium rounded transition"
+        {/* Sign In (desktop) */}
+        <div className="hidden md:block">
+          <Link
+            href="/signin"
+            className="px-8 py-2 bg-white text-black font-medium rounded shadow-md hover:bg-[#0546D2] hover:text-white transition"
+          >
+            Sign In
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden ml-auto text-[#222222] p-2"
+          onClick={() => setMobileOpen((o) => !o)}
+          aria-label="Toggle menu"
         >
-          Sign In
-        </Link>
+          {mobileOpen ? (
+            <CloseIcon className="w-6 h-6" />
+          ) : (
+            <MenuIcon className="w-6 h-6" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile menu panel */}
+      {mobileOpen && (
+        <motion.div
+          className="md:hidden bg-white shadow-lg"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+        >
+          <div className="px-6 py-4 space-y-4">
+            {navbarMenus.map((menu) => {
+              const isSub = mobileSubOpen === menu.id;
+              return (
+                <div key={menu.id} className="border-b pb-2">
+                  <button
+                    className="w-full flex justify-between items-center font-medium text-[#222222] py-2"
+                    onClick={() => setMobileSubOpen(isSub ? null : menu.id)}
+                  >
+                    {menu.MenuName}
+                    <ChevronDown
+                      className={`w-5 h-5 transition-transform ${
+                        isSub ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
+                  </button>
+                  {isSub && (
+                    <motion.div
+                      className="pl-4 space-y-2"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                    >
+                      {menu.MenuItems.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          href={menu.ItemLinks[idx]}
+                          className="block text-[#222222] hover:text-[#0546D2] flex justify-between py-1"
+                        >
+                          <span>{item}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </div>
+              );
+            })}
+            <Link
+              href="/signin"
+              className="block mt-4 px-4 py-2 bg-[#0546D2] text-white text-center rounded-md shadow-md hover:bg-primary transition"
+            >
+              Sign In
+            </Link>
+          </div>
+        </motion.div>
+      )}
     </nav>
-  );
+);
 }

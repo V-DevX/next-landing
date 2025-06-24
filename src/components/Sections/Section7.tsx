@@ -42,7 +42,7 @@ export default function Section8() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p
-            className="text-[20px] font-[600] text-[#1959AC] [font-family:var(--font-sans)]"
+            className="mt-15 md:mt-0 text-[20px] font-[600] text-[#1959AC] [font-family:var(--font-sans)]"
             variants={fadeIn}
           >
             Lorem Ipsum

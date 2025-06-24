@@ -23,18 +23,14 @@ import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
-  const lastScrollY = useRef(0);
+  const lastScrollY = useRef<number>(0);
 
   useEffect(() => {
+    // initialize to current scroll so first scroll works
+    lastScrollY.current = window.scrollY;
     const onScroll = () => {
       const currentY = window.scrollY;
-      if (currentY > lastScrollY.current) {
-        // scrolling down
-        setShowNav(false);
-      } else {
-        // scrolling up
-        setShowNav(true);
-      }
+      setShowNav(currentY <= lastScrollY.current);
       lastScrollY.current = currentY;
     };
     window.addEventListener("scroll", onScroll);
@@ -43,7 +39,7 @@ export default function Home() {
 
   return (
     <main className="bg-white">
-      {/* Navbar overlaid on top of Hero */}
+      {/* Navbar overlays Hero */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
           showNav ? "translate-y-0" : "-translate-y-full"
